@@ -12,8 +12,31 @@ public class Bank {
         customers.put(name, amount);
     }
 
+    public void removeCustomer(String name){
+        customers.remove(name);
+    }
+
+    public void changeCustomerName(String name, String newName, double amount){
+        customers.remove(name);
+        customers.put(newName, amount);
+
+    }
+
+    public void changeCustomerAmount(String name, double amount, double newAmount){
+        customers.remove(name);
+        customers.put(name, newAmount);
+
+    }
+
     public double addValue(String name,Double amount){
         return customers.get(name) + amount;
+    }
+
+    public double addIntrest(String name){
+        double value = customers.get(name);
+        double amount = value*1.09;
+        return customers.get(name) + amount;
+
     }
 
     public double subtractValue(String name, Double amount){
@@ -51,5 +74,9 @@ public class Bank {
         newValue2 = customers.get(name2) + amount;
         customers.put(name1 , newValue1);
         customers.put(name2 , newValue2);
+    }
+
+    public void getFromVault(int id){
+        vaults.remove(id);
     }
 }
